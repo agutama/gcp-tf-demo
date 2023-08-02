@@ -1,9 +1,10 @@
 #!/bin/bash
+set -e
 
 cd storage/env/dev/tf-state/
 terraform init
-terraform plan -var-file="../../../gcs.tfvars"
-terraform apply -var-file="../../../gcs.tfvars" -auto-approve
+terraform plan -var-file="../../../../all.tfvars" -compact-warnings
+terraform apply -var-file="../../../../all.tfvars" -auto-approve -compact-warnings
 cd -
 
 sleep 1
@@ -23,15 +24,15 @@ cd -
 sleep 1
 cd network/env/dev/vpc/
 terraform init
-terraform plan -var-file="../../../vpc.tfvars"
-terraform apply -var-file="../../../vpc.tfvars" -auto-approve
+terraform plan -var-file="../../../../all.tfvars" -compact-warnings
+terraform apply -var-file="../../../../all.tfvars" -auto-approve -compact-warnings
 cd -
 
 sleep 1
 cd network/env/dev/cloud-nat/
 terraform init
-terraform plan -var-file="../../../vpc.tfvars"
-terraform apply -var-file="../../../vpc.tfvars" -auto-approve
+terraform plan -var-file="../../../../all.tfvars" -compact-warnings
+terraform apply -var-file="../../../../all.tfvars" -auto-approve -compact-warnings
 cd -
 
 sleep 1

@@ -38,5 +38,4 @@ terraform.rc
 *.tfstate
 *.tfstate.backup
 .DS_Store
-**/*.tfvars
 .env
