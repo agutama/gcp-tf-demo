@@ -2,11 +2,6 @@
 set -e
 
 sleep 1
-cd compute-engine/env/dev/pritunl/
-terraform destroy -auto-approve
-cd -
-
-sleep 1
 cd compute-engine/env/dev/jenkins/
 terraform destroy -auto-approve
 cd -
@@ -18,6 +13,11 @@ cd -
 
 sleep 1
 cd compute-engine/env/dev/backend/
+terraform destroy -auto-approve
+cd -
+
+sleep 1
+cd compute-engine/env/dev/pritunl/
 terraform destroy -auto-approve
 cd -
 
