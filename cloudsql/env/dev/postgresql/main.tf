@@ -32,8 +32,8 @@ terraform {
 
 
 module "default" {
-  source                = "../../../modules/cloudsql-with-secret-manager/"
-  instance_name         = "dev-cloudsql-psql"
+  source                = "../../../modules/cloudsql-postgresql/"
+  instance_name         = "dev-psql"
   instance_type         = "db-custom-2-4096"
   region                = "asia-southeast2"
   zone                  = "asia-southeast2-a"
