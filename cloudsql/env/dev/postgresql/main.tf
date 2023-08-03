@@ -42,7 +42,7 @@ module "default" {
   project               = "cukzlearn03"
   disk_autoresize       = true
   disk_autoresize_limit = 0
-  disk_size             = 60
+  disk_size             = 10
   disk_type             = "PD_HDD"
   environment           = { "environment" = "dev" }
   deletion_protection   = "false"
@@ -50,7 +50,7 @@ module "default" {
 
   zone_availability_type = "ZONAL" # ZONAL NOT HA , REGIONAL IT'S HA
   ipv4_enabled           = "false"
-  allocated_ip_range     = "google-managed-services"
+  allocated_ip_range     = "subnet-google-managed-services"
 
 
 
