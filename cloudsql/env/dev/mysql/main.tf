@@ -33,7 +33,7 @@ terraform {
 
 module "default" {
   source                = "../../../modules/cloudsql-mysql/"
-  instance_name         = "mysql-dev"
+  instance_name         = "dev-mysql"
   instance_type         = "db-g1-small"
   region                = "asia-southeast2"
   zone                  = "asia-southeast2-a"
