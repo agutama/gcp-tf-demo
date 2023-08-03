@@ -52,3 +52,26 @@ resource "google_compute_subnetwork" "subnet" {
     }
   }
 }
+
+resource "google_compute_global_address" "private_ip_address" {
+  project       = var.project
+  name          = "subnet-google-managed-services"
+  purpose       = "VPC_PEERING"
+  address_type  = "INTERNAL"
+  prefix_length = 24
+  network       = google_compute_network.vpc.id
+}
+
+resource "google_service_networking_connection" "default" {
+  network                 = google_compute_network.vpc.id
+  service                 = "servicenetworking.googleapis.com"
+  reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
+}
+
+resource "google_compute_network_peering_routes_config" "peering_routes" {
+    project = var.project
+  peering              = google_service_networking_connection.default.peering
+  network              = google_compute_network.vpc.name
+  import_custom_routes = true
+  export_custom_routes = true
+}
