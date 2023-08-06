@@ -6,7 +6,7 @@ resource "random_id" "rand" {
 }
 
 resource "google_storage_bucket" "default" {
-  name          = "${var.project}-${var.bucket_name}"
+  name          = "cukzlearn03-terraform"
   project       = "${var.project}"
   location      = "${var.location}"
   force_destroy = "true"
