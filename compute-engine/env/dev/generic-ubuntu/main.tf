@@ -22,9 +22,9 @@ module "compute-engine-test" {
   count_compute        = 1
   count_start          = 1
   instance_name_header = "generic"
-  compute_name         = "${var.compute_name}"
+  compute_name         = "test"
   compute_type         = "e2-small"
-  compute_zones        = "${var.location}"
+  compute_zones        = ["asia-southeast2-a", "asia-southeast2-b", "asia-southeast2-c"]
   ip_forward           = false
   subnetwork           = "subnet-dev-sea2-app"
   subnetwork_project   = "${var.project}"
