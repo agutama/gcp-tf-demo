@@ -12,41 +12,37 @@ terraform {
   }
   backend "gcs" {
     bucket = "cukzlearn03-terraform"
-    prefix = "state/compute-engine/dev/pritunl/"
+    prefix = "state/compute-engine/dev/generic/"
   }
 }
 
-module "pritunl-dev" {
+module "compute-engine-test" {
   source               = "../../../modules/compute-engine/"
   project              = "${var.project}"
-  count_compute        = 1
+  count_compute        = 6
   count_start          = 1
-  instance_name_header = "dev-se2"
-  compute_name         = "pritunl"
-  compute_type         = "e2-small"
+  instance_name_header = "generic"
+  compute_name         = "test"
+  compute_type         = "e2-medium"
   compute_zones        = ["asia-southeast2-a", "asia-southeast2-b", "asia-southeast2-c"]
   ip_forward           = false
-  subnetwork           = "subnet-tools-dev-sea2-app"
+  subnetwork           = "subnet-dev-sea2-app"
   subnetwork_project   = "${var.project}"
   source_image_project = "${var.project}"
-  images_name          = "base-template-ubuntu-22-04"
+  images_name          = "base-template-centos-7"
   size_root_disk       = 20
   type_root_disk       = "pd-balanced"
 
-  service_account = [{
-    email = "pritunl-dev@cukzlearn03.iam.gserviceaccount.com"
-  }, ]
-
-  access_config = [{
-    network_tier = "PREMIUM"
-  }, ]
+  # access_config = [{
+  #   network_tier = "PREMIUM"
+  # }, ]
 
   #LABEL
   env           = "dev"
   service_group = "infra"
-  service_name  = "pritunl-dev"
-  service_type  = "vpn"
+  service_name  = "tools"
+  service_type  = "server"
 
   #Network Tags
-  additional_tags = ["pritunl","ssh"]
+  additional_tags = ["test","ssh"]
 }

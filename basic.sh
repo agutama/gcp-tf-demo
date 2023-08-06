@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+export TF_VAR_project="cukzlearn03"
+export TF_VAR_location="asia-southeast2"
+export TF_VAR_vpc_name="vpc"
+
 if [[ $1 == "" ]]; then
     echo "Please run command: ./basic.sh [deploy or destroy]"
     exit;
@@ -26,7 +30,7 @@ elif [[ $1 == "deploy" ]]; then
     cd -
 
     sleep 1
-    cd compute-engine/env/dev/generic/
+    cd compute-engine/env/dev/generic-centos/
     terraform init
     terraform plan
     terraform apply -auto-approve
@@ -35,7 +39,7 @@ elif [[ $1 == "deploy" ]]; then
 elif [[ $1 == "destroy" ]]; then
 
     sleep 1
-    cd compute-engine/env/dev/generic/
+    cd compute-engine/env/dev/generic-centos/
     terraform destroy -auto-approve
     cd -
 

@@ -53,6 +53,22 @@ resource "google_compute_firewall" "vpc-dev-allow-ingress-https" {
   target_tags = ["pritunl"]
 }
 
+resource "google_compute_firewall" "vpc-dev-allow-ingress-test" {
+  name    = "vpc-dev-allow-ingress-test"
+  network = data.google_compute_network.vpc-dev.id
+  project = "cukzlearn03"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80", "443", "9200", "5601"]
+  }
+
+  source_ranges = [
+    "0.0.0.0/0",
+  ]
+  target_tags = ["test"]
+}
+
 resource "google_compute_firewall" "vpc-dev-allow-ingress-pritunl" {
   name    = "vpc-dev-allow-ingress-ssh"
   network = data.google_compute_network.vpc-dev.id
