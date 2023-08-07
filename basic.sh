@@ -19,7 +19,7 @@ elif [[ $1 == "deploy" ]]; then
     cd network/env/dev/vpc/
     terraform init
     terraform plan
-    terraform apply -auto-approve -compact-warnings
+    terraform apply -auto-approve
     cd -
 
     sleep 1

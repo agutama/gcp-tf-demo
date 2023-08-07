@@ -19,11 +19,11 @@ terraform {
 module "compute-engine-test" {
   source               = "../../../modules/compute-engine/"
   project              = "${var.project}"
-  count_compute        = 6
+  count_compute        = 1
   count_start          = 1
   instance_name_header = "generic"
   compute_name         = "test"
-  compute_type         = "e2-medium"
+  compute_type         = "e2-small"
   compute_zones        = ["asia-southeast2-a", "asia-southeast2-b", "asia-southeast2-c"]
   ip_forward           = false
   subnetwork           = "subnet-dev-sea2-app"
