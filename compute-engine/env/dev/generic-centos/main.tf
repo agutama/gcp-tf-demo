@@ -33,9 +33,9 @@ module "compute-engine-test" {
   size_root_disk       = 20
   type_root_disk       = "pd-balanced"
 
-  # access_config = [{
-  #   network_tier = "PREMIUM"
-  # }, ]
+  access_config = [{
+    network_tier = "PREMIUM"
+  }, ]
 
   #LABEL
   env           = "dev"
