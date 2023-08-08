@@ -31,6 +31,13 @@ elif [[ $1 == "deploy" ]]; then
     cd -
 
     sleep 1
+    cd svc-account/env/dev/artifact
+    terraform init
+    terraform plan
+    terraform apply -auto-approve
+    cd -
+
+    sleep 1
     cd network/env/dev/vpc/
     terraform init
     terraform plan
@@ -97,6 +104,11 @@ elif [[ $1 == "destroy" ]]; then
 
     sleep 1
     cd svc-account/env/dev/prometheus
+    terraform destroy -auto-approve
+    cd -
+
+    sleep 1
+    cd svc-account/env/dev/artifact
     terraform destroy -auto-approve
     cd -
 
