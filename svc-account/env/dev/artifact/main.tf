@@ -18,9 +18,11 @@ module "service-account" {
   service_project      = "cukzlearn03"
   service_account_name = "cicd-dev"
   roles                = [
-    "roles/artifactregistry.reader",
-    "roles/artifactregistry.writer",
-    "roles/artifactregistry.repoAdmin",
+    "roles/run.admin",
+    "roles/iam.serviceAccountUser",
+    "roles/storage.admin",
     "roles/artifactregistry.admin",
+    "roles/artifactregistry.repoAdmin",
+    "roles/iam.workloadIdentityUser"
   ]
 }
