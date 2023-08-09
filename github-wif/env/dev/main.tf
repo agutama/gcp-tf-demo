@@ -38,7 +38,7 @@ module "github-wif" {
   service_accounts = [
     {
       name           = data.google_service_account.cicd-dev.name
-      attribute      = "attribute.repository/agutama"
+      attribute      = "attribute.repository/laravel8"
       all_identities = true
     }
   ]
