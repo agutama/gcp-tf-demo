@@ -22,5 +22,7 @@ module "service-account" {
     "roles/iam.serviceAccountUser",
     "roles/storage.admin",
     "roles/artifactregistry.admin",
+    "roles/artifactregistry.repoAdmin",
+    "roles/iam.workloadIdentityUser"
   ]
 }
