@@ -37,13 +37,6 @@ elif [[ $1 == "deploy" ]]; then
     terraform apply -auto-approve
     cd -
 
-    sleep 1
-    cd cd github-wif/env/dev/
-    terraform init
-    terraform plan
-    terraform apply -auto-approve
-    cd -
-
 elif [[ $1 == "destroy" ]]; then
 
     sleep 1
