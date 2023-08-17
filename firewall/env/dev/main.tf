@@ -60,13 +60,13 @@ resource "google_compute_firewall" "vpc-dev-allow-ingress-test" {
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "443", "9200", "5601"]
+    ports    = ["80", "443", "9200", "5601", "8080"]
   }
 
   source_ranges = [
     "0.0.0.0/0",
   ]
-  target_tags = ["test"]
+  target_tags = ["test","jenkins-server"]
 }
 
 resource "google_compute_firewall" "vpc-dev-allow-ingress-pritunl" {

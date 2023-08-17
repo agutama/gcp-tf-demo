@@ -43,6 +43,14 @@ module "default" {
   type_root_disk              = "pd-standard"
   static_internal_ip_address  = google_compute_address.jenkins-dev-sea2-internal-ip[0].self_link
 
+  service_account = [{
+    email = "cicd-dev@cukzlearn03.iam.gserviceaccount.com"
+  }, ]
+
+  access_config = [{
+    network_tier = "PREMIUM"
+  }, ]
+
   #LABEL
   env           = "dev"
   service_group = "infra"

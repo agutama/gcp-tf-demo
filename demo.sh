@@ -44,12 +44,12 @@ elif [[ $1 == "deploy" ]]; then
     terraform apply -auto-approve
     cd -
 
-    sleep 1
-    cd network/env/dev/cloud-nat/
-    terraform init
-    terraform plan 
-    terraform apply -auto-approve
-    cd -
+    # sleep 1
+    # cd network/env/dev/cloud-nat/
+    # terraform init
+    # terraform plan 
+    # terraform apply -auto-approve
+    # cd -
 
     sleep 1
     cd firewall/env/dev/
@@ -58,15 +58,22 @@ elif [[ $1 == "deploy" ]]; then
     terraform apply -auto-approve
     cd -
 
-    sleep 1
-    cd compute-engine/env/dev/pritunl/
-    terraform init
-    terraform plan
-    terraform apply -auto-approve
-    cd -
+    # sleep 1
+    # cd compute-engine/env/dev/pritunl/
+    # terraform init
+    # terraform plan
+    # terraform apply -auto-approve
+    # cd -
+
+    # sleep 1
+    # cd compute-engine/env/dev/generic-centos/
+    # terraform init
+    # terraform plan
+    # terraform apply -auto-approve
+    # cd -
 
     sleep 1
-    cd compute-engine/env/dev/prometheus/
+    cd compute-engine/env/dev/jenkins/
     terraform init
     terraform plan
     terraform apply -auto-approve
@@ -74,11 +81,20 @@ elif [[ $1 == "deploy" ]]; then
 
 elif [[ $1 == "destroy" ]]; then
 
-    cd compute-engine/env/dev/prometheus/
-    terraform destroy -auto-approve
-    cd -
+    # sleep 1
+    # cd compute-engine/env/dev/generic-centos/
+    # terraform destroy -auto-approve
+    # cd -
 
-    cd compute-engine/env/dev/pritunl/
+    # cd compute-engine/env/dev/prometheus/
+    # terraform destroy -auto-approve
+    # cd -
+
+    # cd compute-engine/env/dev/pritunl/
+    # terraform destroy -auto-approve
+    # cd -
+
+    cd compute-engine/env/dev/jenkins/
     terraform destroy -auto-approve
     cd -
 
@@ -87,10 +103,10 @@ elif [[ $1 == "destroy" ]]; then
     terraform destroy -auto-approve
     cd -
 
-    sleep 1
-    cd network/env/dev/cloud-nat/
-    terraform destroy -auto-approve
-    cd -
+    # sleep 1
+    # cd network/env/dev/cloud-nat/
+    # terraform destroy -auto-approve
+    # cd -
 
     sleep 1
     cd network/env/dev/vpc/
